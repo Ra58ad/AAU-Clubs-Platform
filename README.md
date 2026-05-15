@@ -12,7 +12,7 @@ The platform is planned to be simple but flexible to accomodate all clubs in the
 Contributors names and contact info
 
 * Nahim Teklu 
-* [Rame Mahamat] (https://github.com/Ra58ad)
+* [Rame Mahamat](https://github.com/Ra58ad)
 * Sead Bushra 
 * Sinen Dirirsa 
 * Tsegaye Shewamare Ebdo 
