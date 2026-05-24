@@ -11,11 +11,11 @@ The platform is planned to be simple but flexible to accomodate all clubs in the
 
 Contributors names and contact info
 
-* Nahim Teklu 
+* [Nahim Teklu](https://github.com/nahim13)
 * [Rame Mahamat](https://github.com/Ra58ad)
-* Sead Bushra 
-* Sinen Dirirsa 
-* Tsegaye Shewamare Ebdo 
+* [Sead Bushra](https://github.com/sead44)
+* [Sinen Dirirsa](https://github.com/Sinen2908)
+* [Tsegaye Shewamare Ebdo](https://github.com/tse-coder)
 
 ## Version History
 
