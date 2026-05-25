@@ -24,7 +24,7 @@
         <li><a href="clubs.html">Clubs</a></li>
       
         <li><a href="events.html">Events</a></li>
-        <li><a href="keydates.html">Key Dates</a></li>
+        <li><a href="key-dates.html">Key Dates</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -90,7 +90,7 @@
         <div class="clubs-grid">
           <article class="club-card">
             <div class="club-card-image">
-              <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop" alt="Hackathon club members working on a project" loading="lazy">
+              <img src="images/hack5.jpg" alt="Hackathon club members working on a project" loading="lazy">
             </div>
             <div class="club-card-body">
               <h3>Hackathon Club</h3>
@@ -100,7 +100,7 @@
           </article>
           <article class="club-card">
             <div class="club-card-image">
-              <img src="https://images.unsplash.com/photo-1460661414731-7abaf9378ee8?w=600&h=400&fit=crop" alt="Art club students painting" loading="lazy">
+              <img src="images/art6.jpg"alt="Art club students painting" loading="lazy">
             </div>
             <div class="club-card-body">
               <h3>Art &amp; Culture Club</h3>
@@ -110,7 +110,7 @@
           </article>
           <article class="club-card">
             <div class="club-card-image">
-              <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=400&fit=crop" alt="Sports club athletes on the field" loading="lazy">
+              <img src="images/sport.jpg" alt="Sports club athletes on the field" loading="lazy">
             </div>
             <div class="club-card-body">
               <h3>Sports Club</h3>
@@ -165,28 +165,33 @@
         </div>
 
         <div class="video-showcase">
-          <h3>Event Highlights on Video</h3>
-          <div class="video-grid">
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/ZSt9tm3RoUw"
-                title="Hackathon club highlight video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy">
-              </iframe>
-            </div>
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/ScMzIvxBSi4"
-                title="Campus clubs overview video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy">
-              </iframe>
-            </div>
-          </div>
-        </div>
+  <h3>Event Highlights on Video</h3>
+
+  <div class="video-grid">
+
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/HQRWpov8aFQ"
+        title="Art club highlight video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/dWEw0ZPnme4"
+        title="Campus clubs overview video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+</div>
+       
       </div>
     </section>
 
@@ -197,20 +202,26 @@
           <h2>Club Registration</h2>
           <p>Sign up to join a club and receive updates about meetings and upcoming events.</p>
         </div>
-        <form id="register-form" class="form-card" novalidate>
+      
+        <form id="register-form" class="form-card" method="POST" action="php/register.php">
           <div class="form-group">
             <label for="reg-name">Full Name</label>
-            <input type="text" id="reg-name" name="name" placeholder="Your full name" autocomplete="name">
+            <input type="text" id="reg-name" name="full_name" placeholder="Your full name" autocomplete="full_name" required>
             <span class="error-message" role="alert"></span>
           </div>
           <div class="form-group">
             <label for="reg-email">Email Address</label>
-            <input type="email" id="reg-email" name="email" placeholder="you@aau.edu.et" autocomplete="email">
+            <input type="email" id="reg-email" name="email" placeholder="you@aau.edu.et" autocomplete="email" required>
             <span class="error-message" role="alert"></span>
           </div>
           <div class="form-group">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" name="password" placeholder="Password" required>
+           <span class="error-message" role="alert"></span>
+         </div>
+          <div class="form-group">
             <label for="reg-club">Select Club</label>
-            <select id="reg-club" name="club">
+            <select id="reg-club" name="club" required>
               <option value="">Choose a club...</option>
               <option value="hackathon">Hackathon Club</option>
               <option value="art">Art &amp; Culture Club</option>
@@ -220,7 +231,7 @@
             <span class="error-message" role="alert"></span>
           </div>
           <button type="submit" class="btn btn-primary">Submit Registration</button>
-          <p id="register-success" class="success-message" role="status">
+          <p id="register-success" class="success-message" role="status" style="display:none;">
             Registration successful! You have been signed up for your selected club. We will contact you at the email provided.
           </p>
         </form>
@@ -244,7 +255,7 @@
           <li><a href="clubs.html">Clubs</a></li>
           
           <li><a href="events.html">Events</a></li>
-          <li><a href="keydates.html">Key Dates</a></li>
+          <li><a href="key-dates.html">Key Dates</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -262,6 +273,18 @@
     <p class="footer-bottom">&copy; 2026 AAU Clubs Platform. Addis Ababa University.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!--script src="script.js"></script-->
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.get("success") === "1") {
+        alert("Registration successful!");
+
+        
+        window.history.replaceState(null, "", window.location.pathname);
+    }
+});
+</script>
 </body>
 </html>
