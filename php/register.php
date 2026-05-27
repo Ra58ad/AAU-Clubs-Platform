@@ -1,26 +1,37 @@
 <?php
+require '../Core/Database.php';
+$config = require '../config.php';
+$db = new \Core\Database($config['database'], $config['username'], $config['password']);
 
-include 'db.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $full_name = $_POST['full_name'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $club = $_POST['club'];
 
-    $sql = "INSERT INTO users (full_name, email, password, club)
-            VALUES ('$full_name', '$email', '$password', '$club')";
+    // 1. Check if the email already exists
+    $user = $db->query("SELECT * FROM users WHERE email = :email", [
+        'email' => $email
+    ])->find();
 
-    if ($conn->query($sql) === TRUE) {
-        header("Location: ../index.html?success=1");
+    if ($user) {
+        // Redirect back with an error message in the URL
+        header('Location: ../index.php?error=email_taken');
         exit();
-    } else {
-        echo "SQL ERROR: " . $conn->error;
     }
 
-} else {
-    echo "Invalid Request";
-}
+    // 2. Find the club details
+    $club = $db->query("SELECT id, name FROM clubs WHERE slug = :slug", [
+        'slug' => $_POST['club']
+    ])->find();
 
-?>
+    // 3. If email is unique, proceed with registration
+    $db->query("INSERT INTO users (club_id, full_name, email, password, club, role) VALUES (?, ?, ?, ?, ?, ?)", [
+        $club['id'],
+        $_POST['full_name'],
+        $email,
+        password_hash($_POST['password'], PASSWORD_BCRYPT),
+        $club['name'],
+        'member'
+    ]);
+
+    header('Location: ../index.php?success=1');
+    exit();
+}
