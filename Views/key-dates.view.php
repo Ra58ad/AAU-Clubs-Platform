@@ -1,8 +1,8 @@
 <?php
 // 1. Core Integration & Session
-require 'Core/Database.php';
+
 require 'Core/Session.php';
-require 'Core/functions.php';
+
 
 session_start();
 

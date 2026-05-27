@@ -3,7 +3,7 @@ return [
     'database' => [
         'host' => 'localhost',
         'port' => 3306,
-        'dbname' => 'aau_clubs_db',
+        'dbname' => 'aau_club_db',
         'charset' => 'utf8mb4'
     ],
     'username' => 'root',

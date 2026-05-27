@@ -1,9 +1,8 @@
 <?php
-require 'Core/Database.php';
-require 'Core/Session.php';
-require 'Core/functions.php';
 
-session_start();
+require 'Core/Session.php';
+
+
 $config = require 'config.php';
 $db = new \Core\Database($config['database'], $config['username'], $config['password']);
 

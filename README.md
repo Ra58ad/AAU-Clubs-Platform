@@ -19,6 +19,15 @@ Contributors names and contact info
 
 ## Version History
 
+* 0.4
+    * Router and error pages added, session re-format
+
+* 0.3
+    * PHP-based re-format, basic sessioning
+
+* 0.2
+    * Clubs, key-events added
+
 * 0.1
     * Initial Release
 

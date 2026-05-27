@@ -1,9 +1,7 @@
 <?php
 
-namespace Core;
 
 //use Core\Response;
-const BASE_PATH = __DIR__.'/../';
 
 function dd($value){
     echo "<pre>";
@@ -34,7 +32,7 @@ function authorize($condition, $status = 403){
 }
 
 function basePath($path){
-    return BASE_PATH.$path;
+    return $path;
 }
 
 function view($path, $attributes = []){
@@ -49,5 +47,5 @@ function redirect($path){
 }
 
 function old($key, $default = ''){
-    return Session::get('old')[$key] ?? $default;
+    return Core\Session::get('old')[$key] ?? $default;
 }

@@ -1,6 +1,6 @@
 <?php
-require 'Core/Database.php';
-require 'Core/functions.php';
+
+
 $config = require 'config.php';
 $db = new \Core\Database($config['database'], $config['username'], $config['password']);
 
