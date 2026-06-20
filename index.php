@@ -93,7 +93,7 @@ $user = \Core\Session::get('user');
               <div class="club-card-body">
                   <h3>Red Cross Branch</h3>
                   <p>Humanitarian service and first aid training.</p>
-                  <a href="club.php?slug=red-cross" class="btn btn-primary">View Club</a>
+                  <a href="clubs/red-cross.html" class="btn btn-primary">View Club</a>
               </div>
           </article>
 
@@ -102,16 +102,16 @@ $user = \Core\Session::get('user');
               <div class="club-card-body">
                   <h3>Literature Club</h3>
                   <p>Poetry nights and creative writing workshops.</p>
-                  <a href="club.php?slug=literature" class="btn btn-primary">View Club</a>
+                  <a href="clubs/literature.html" class="btn btn-primary">View Club</a>
               </div>
           </article>
 
           <article class="club-card">
-              <div class="club-card-image"><img src="images/Debate.jpg"></div>
+              <div class="club-card-image"><img src="images/debate.jpg"></div>
               <div class="club-card-body">
                   <h3>AAU Debate Club</h3>
                   <p>Critical thinking and public speaking excellence.</p>
-                  <a href="club.php?slug=debate" class="btn btn-primary">View Club</a>
+                  <a href="clubs/debate.html" class="btn btn-primary">View Club</a>
               </div>
           </article>
 

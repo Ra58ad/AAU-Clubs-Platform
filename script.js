@@ -151,4 +151,87 @@
     });
   }
 
+  /* =========================
+     CLUB REGISTRATION (frontend preview)
+  ========================= */
+  document.querySelectorAll(".club-register-form").forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      let valid = true;
+      clearErrors(form);
+
+      const nameInput = form.querySelector('[name="full_name"]');
+      const idInput = form.querySelector('[name="student_id"]');
+      const emailInput = form.querySelector('[name="email"]');
+      const phoneInput = form.querySelector('[name="phone"]');
+      const genderInput = form.querySelector('[name="gender"]');
+      const dobInput = form.querySelector('[name="dob"]');
+
+      if (!isValidName(nameInput.value)) {
+        showError(nameInput, "Enter full name (min. 2 chars)");
+        valid = false;
+      }
+      if (idInput.value.trim().length < 3) {
+        showError(idInput, "Enter a valid student ID");
+        valid = false;
+      }
+      if (!dobInput.value) {
+        showError(dobInput, "Date of birth is required");
+        valid = false;
+      }
+      if (!genderInput.value) {
+        showError(genderInput, "Please select gender");
+        valid = false;
+      }
+      if (!isValidEmail(emailInput.value)) {
+        showError(emailInput, "Invalid email address");
+        valid = false;
+      }
+      if (phoneInput.value.trim().length < 8) {
+        showError(phoneInput, "Enter a valid phone number");
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      const success = form.querySelector(".success-message");
+      if (success) success.classList.add("visible");
+      form.reset();
+    });
+  });
+
+  /* =========================
+     CLUB CONTACT FORM
+  ========================= */
+  document.querySelectorAll("#club-contact-form").forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      let valid = true;
+      clearErrors(form);
+
+      const nameInput = form.querySelector('input[type="text"]');
+      const emailInput = form.querySelector('input[type="email"]');
+      const messageInput = form.querySelector("textarea");
+
+      if (!isValidName(nameInput.value)) {
+        showError(nameInput, "Enter a valid name");
+        valid = false;
+      }
+      if (!isValidEmail(emailInput.value)) {
+        showError(emailInput, "Invalid email address");
+        valid = false;
+      }
+      if (messageInput.value.trim().length < 10) {
+        showError(messageInput, "Message must be at least 10 characters");
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      const success = form.querySelector(".success-message");
+      if (success) success.classList.add("visible");
+      form.reset();
+    });
+  });
+
 })();
