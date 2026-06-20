@@ -1,9 +1,5 @@
 <?php
-// 1. Include the necessary files for the session
-// require 'Core/Session.php';
-// require 'Core/functions.php';
 
-// Get the user from the session (if logged in)
 $user = \Core\Session::get('user');
 ?>
 <!DOCTYPE html>
