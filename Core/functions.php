@@ -1,9 +1,7 @@
 <?php
 
-namespace Core;
 
 //use Core\Response;
-const BASE_PATH = __DIR__.'/../';
 
 function dd($value){
     echo "<pre>";
@@ -15,6 +13,12 @@ function dd($value){
     die();
 }
 
+function filterByType($items, $type) {
+    return array_filter($items, function($item) use ($type) {
+        return $item['type'] === $type;
+    });
+}
+
 function urlIs($value){
     return $_SERVER['REQUEST_URI'] === $value;
 }
@@ -22,7 +26,7 @@ function urlIs($value){
 function abort($code = 404){
     http_response_code($code);
     
-    require basePath("views/{$code}.php");
+    require basePath("Views/{$code}.php");
 
     die();
 }
@@ -40,7 +44,7 @@ function basePath($path){
 function view($path, $attributes = []){
     extract($attributes);
 
-    require BASE_PATH . "views/" . $path;
+    require BASE_PATH . "Views\\" . $path;
 }
 
 function redirect($path){
@@ -49,5 +53,5 @@ function redirect($path){
 }
 
 function old($key, $default = ''){
-    return Session::get('old')[$key] ?? $default;
+    return Core\Session::get('old')[$key] ?? $default;
 }

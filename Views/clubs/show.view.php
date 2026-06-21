@@ -1,15 +1,4 @@
-<?php
-require 'Core/Database.php';
-require 'Core/functions.php';
-$config = require 'config.php';
-$db = new \Core\Database($config['database'], $config['username'], $config['password']);
 
-$slug = $_GET['slug'] ?? 'art';
-$club = $db->query("SELECT * FROM clubs WHERE slug = :slug", ['slug' => $slug])->find();
-if (!$club) { abort(); }
-
-$media = $db->query("SELECT * FROM events WHERE club_id = :id AND is_highlight = 1", ['id' => $club['id']])->findAll();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +6,8 @@ $media = $db->query("SELECT * FROM events WHERE club_id = :id AND is_highlight =
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="page-hero"><h1><?= $club['name'] ?></h1><p><?= $club['description'] ?></p></header>
+    <?php view("partials/header.php") ?>
+    <section class="page-hero"><h1><?= $club['name'] ?></h1><p><?= $club['description'] ?></p></section>
     <main class="container">
         <section class="club-detail-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; padding:2rem 0;">
             <img src="<?= $club['hero_image'] ?>" style="width:100%; border-radius:12px;">

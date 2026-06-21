@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact the AAU Clubs Platform team.">
-  <title>Contact | AAU Clubs Platform</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<?php  view("partials/head.php") ?>
 <body>
-  <header class="site-header">
-    <nav class="nav-container" aria-label="Main navigation">
-      <a href="index.html" class="brand">
-        <img src="images/AAULogo.png" alt="Addis Ababa University" class="brand-logo">
-        <span class="brand-title">AAU Clubs Platform</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-menu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="clubs.php" class="active">Clubs</a></li>
-        <li><a href="key-dates.php">Key Dates</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="index.php#register" class="btn btn-primary" style="color:#000; padding:5px 10px;">Join</a></li>
-    </ul>
-    </nav>
-  </header>
+<?php  view("partials/header.php") ?>
 
   <main>
     <section class="page-hero">
@@ -118,37 +91,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="brand brand--footer">
-          <img src="images/AAULogo.png" alt="Addis Ababa University" class="brand-logo brand-logo--footer">
-          <span class="brand-title">AAU Clubs Platform</span>
-        </a>
-        <p>A student-led platform connecting AAU communities through clubs, events, and shared experiences.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="index.php#clubs">Clubs</a></li>
-          <li><a href="key-dates.phps">Events</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-contributors">
-        <h4>Contributors</h4>
-        <ul>
-          <li>Nahim Teklu</li>
-          <li>Rame Mahamat</li>
-          <li>Sead Bushra</li>
-          <li>Sinen Dirirsa</li>
-          <li>Tsegaye Shewamare Ebdo</li>
-        </ul>
-      </div>
-    </div>
-    <p class="footer-bottom">&copy; 2026 AAU Clubs Platform. Addis Ababa University.</p>
-  </footer>
+<?php  view("partials/footer.php") ?>
 
   <script src="script.js"></script>
 </body>

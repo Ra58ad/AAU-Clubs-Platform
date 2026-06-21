@@ -6,6 +6,10 @@ A basic platform for Addis Ababa University clubs to showcase and present their 
 
 The platform is planned to be simple but flexible to accomodate all clubs in the University, without compromising clarity.
 
+## Documentation
+
+Check out the [documentation file](doc.md).
+
 
 ## Authors
 
@@ -18,6 +22,18 @@ Contributors names and contact info
 * [Tsegaye Shewamare Ebdo](https://github.com/tse-coder)
 
 ## Version History
+
+* 0.5
+    * Partway through adding controllers and partial Views
+
+* 0.4
+    * Router and error pages added, session re-format
+
+* 0.3
+    * PHP-based re-format, basic sessioning
+
+* 0.2
+    * Clubs, key-events added
 
 * 0.1
     * Initial Release

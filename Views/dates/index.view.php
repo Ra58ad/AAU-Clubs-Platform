@@ -1,66 +1,11 @@
-<?php
-// 1. Core Integration & Session
-require 'Core/Database.php';
-require 'Core/Session.php';
-require 'Core/functions.php';
 
-session_start();
 
-// 2. Database connection
-$config = require 'config.php';
-$db = new \Core\Database($config['database'], $config['username'], $config['password']);
-
-// 3. Fetch all schedule items (is_highlight = 0 means schedule, not gallery)
-$items = $db->query("SELECT * FROM events WHERE is_highlight = 0 ORDER BY event_date ASC")->findAll();
-
-// Helper to filter items by type
-function filterByType($items, $type) {
-    return array_filter($items, function($item) use ($type) {
-        return $item['type'] === $type;
-    });
-}
-
-$upcomingEvents = filterByType($items, 'event');
-$deadlines = filterByType($items, 'deadline');
-$meetings = filterByType($items, 'meeting');
-
-// Check user session for Nav logic
-$user = \Core\Session::get('user');
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Key Dates | AAU Clubs Platform</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<?php  view("partials/head.php") ?>
 <body>
 
-  <!-- EMBEDDED NAVIGATION -->
-  <header class="site-header">
-    <nav class="nav-container" aria-label="Main navigation">
-      <a href="index.php" class="brand">
-        <img src="images/AAULogo.png" alt="Addis Ababa University" class="brand-logo">
-        <span class="brand-title">AAU Clubs Platform</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-menu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="clubs.php">Clubs</a></li>
-        <li><a href="key-dates.php" class="active">Key Dates</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="index.php#register" class="btn btn-primary" style="color:#000; padding:5px 10px;">Join</a></li>
-
-      </ul>
-    </nav>
-  </header>
+  <?php view("partials/header.php") ?>
 
   <main>
-    <!-- HERO SECTION -->
     <section class="page-hero">
       <div class="container">
         <h1>Key Dates & Deadlines</h1>
@@ -68,7 +13,6 @@ $user = \Core\Session::get('user');
       </div>
     </section>
 
-    <!-- SECTION 1: UPCOMING EVENTS -->
     <section class="section">
       <div class="container">
         <div class="section-header">
@@ -99,7 +43,6 @@ $user = \Core\Session::get('user');
       </div>
     </section>
 
-    <!-- SECTION 2: REGISTRATION DEADLINES -->
     <section class="section section-alt">
       <div class="container">
         <div class="section-header">
@@ -130,7 +73,6 @@ $user = \Core\Session::get('user');
       </div>
     </section>
 
-    <!-- SECTION 3: WEEKLY MEETINGS -->
     <section class="section">
       <div class="container">
         <div class="section-header">
@@ -160,22 +102,16 @@ $user = \Core\Session::get('user');
         </div>
         
         <p style="text-align: center; margin-top: 3rem;">
-          <a href="index.php#register" class="btn btn-primary">Register for Reminders</a>
+          <a href="/register" class="btn btn-primary">Register for Reminders</a>
         </p>
       </div>
     </section>
   </main>
 
-  <!-- Shared Footer (You can embed this too if you don't use footer.php) -->
-  <?php if (file_exists('includes/footer.php')) { include 'includes/footer.php'; } else { ?>
-    <footer class="site-footer">
-        <div class="container" style="text-align:center;">
-            <p>&copy; <?= date('Y') ?> Addis Ababa University Clubs Platform</p>
-            <p style="font-size:0.8rem; opacity:0.7;">Nahim | Rame | Sead | Sinen | Tsegaye</p>
-        </div>
-    </footer>
-  <?php } ?>
+  <?php view("partials/footer.php") ?>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+

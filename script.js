@@ -115,7 +115,7 @@
     registerForm.addEventListener("submit", function (event) {
       const nameInput = document.getElementById("reg-name");
       const emailInput = document.getElementById("reg-email");
-      const passwordInput = document.getElementById("reg-password");
+      const passwordInput = document.getElementById("password");
       const clubInput = document.getElementById("reg-club");
 
       let valid = true;

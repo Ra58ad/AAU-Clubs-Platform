@@ -1,6 +1,3 @@
-<?php
-include 'php/db.php';
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +43,8 @@ include 'php/db.php';
 
 <body>
 
+<?php view("partials/header.php") ?>
+
 <h1>AAU Clubs - Admin Dashboard</h1>
 
 <table>
@@ -59,18 +58,17 @@ include 'php/db.php';
   </tr>
 
 <?php
-$sql = "SELECT * FROM users ORDER BY id DESC";
-$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+
+if ($users) {
+    foreach ($users as $user) {
         echo "<tr>
-            <td>{$row['id']}</td>
-            <td>{$row['full_name']}</td>
-            <td>{$row['email']}</td>
-            <td>{$row['club']}</td>
-            <td>{$row['role']}</td>
-            <td>{$row['created_at']}</td>
+            <td>{$user['id']}</td>
+            <td>{$user['full_name']}</td>
+            <td>{$user['email']}</td>
+            <td>{$user['club']}</td>
+            <td>{$user['role']}</td>
+            <td>{$user['created_at']}</td>
         </tr>";
     }
 } else {

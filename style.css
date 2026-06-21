@@ -69,6 +69,7 @@ a:hover {
   margin: 0 auto;
   padding: 0 1.25rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   min-height: 64px;
@@ -128,11 +129,15 @@ a:hover {
 
 .nav-menu {
   display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-wrap: wrap;
   list-style: none;
+  max-width: 100%;
   gap: 0.25rem;
 }
 
-.nav-menu a {
+.nav-menu a, button {
   color: rgba(255, 255, 255, 0.9);
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -140,8 +145,8 @@ a:hover {
   font-weight: 500;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
+.nav-menu a:hover, button:hover,
+.nav-menu a.active, button:active {
   color: var(--white);
   background: rgba(255, 255, 255, 0.12);
 }
@@ -331,7 +336,7 @@ main {
 /* Club cards */
 .clubs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 1.5rem;
 }
 
