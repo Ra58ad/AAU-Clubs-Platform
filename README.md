@@ -6,6 +6,10 @@ A basic platform for Addis Ababa University clubs to showcase and present their 
 
 The platform is planned to be simple but flexible to accomodate all clubs in the University, without compromising clarity.
 
+## Documentation
+
+Check out the [documentation file](doc.md).
+
 
 ## Authors
 
@@ -20,7 +24,7 @@ Contributors names and contact info
 ## Version History
 
 * 0.5
-    * Partway through adding controllers and partial views
+    * Partway through adding controllers and partial Views
 
 * 0.4
     * Router and error pages added, session re-format

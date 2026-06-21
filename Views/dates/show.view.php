@@ -1,13 +1,6 @@
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Key Dates | AAU Clubs Platform</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<?php require view("partials/head.php") ?>
 <body>
 
   <!-- EMBEDDED NAVIGATION -->
@@ -138,15 +131,7 @@
     </section>
   </main>
 
-  <!-- Shared Footer (You can embed this too if you don't use footer.php) -->
-  <?php if (file_exists('includes/footer.php')) { include 'includes/footer.php'; } else { ?>
-    <footer class="site-footer">
-        <div class="container" style="text-align:center;">
-            <p>&copy; <?= date('Y') ?> Addis Ababa University Clubs Platform</p>
-            <p style="font-size:0.8rem; opacity:0.7;">Nahim | Rame | Sead | Sinen | Tsegaye</p>
-        </div>
-    </footer>
-  <?php } ?>
+  <?php require view("partials/footer.php") ?>
 
   <script src="script.js"></script>
 </body>

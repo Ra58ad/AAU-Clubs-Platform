@@ -1,14 +1,3 @@
-<?php
-
-require 'Core/Session.php';
-
-
-$config = require 'config.php';
-$db = new \Core\Database($config['database'], $config['username'], $config['password']);
-
-// Fetch all clubs from the database
-$clubs = $db->query("SELECT * FROM clubs")->findAll();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +41,7 @@ $clubs = $db->query("SELECT * FROM clubs")->findAll();
                                 <h3><?= htmlspecialchars($club['name']) ?></h3>
                                 <p><?= htmlspecialchars($club['description']) ?></p>
                                 <!-- THIS LINK TELLS club.php WHICH CLUB TO SHOW -->
-                                <a href="club.php?slug=<?= $club['slug'] ?>" class="btn btn-primary">View Club</a>
+                                <a href="/club?slug=<?= $club['slug'] ?>" class="btn btn-primary">View Club</a>
                             </div>
                         </article>
                     <?php endforeach; ?>

@@ -1,7 +1,4 @@
-<?php
 
-$user = \Core\Session::get('user');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,28 +7,7 @@ $user = \Core\Session::get('user');
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav-container">
-      <a href="index.php" class="brand">
-        <img src="images/AAULogo.png" alt="AAU" class="brand-logo">
-        <span class="brand-title">AAU Clubs Platform</span>
-      </a>
-      <ul class="nav-menu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="clubs.php" class="active">Clubs</a></li>
-        <li><a href="key-dates.php">Key Dates</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        
-        
-        <?php if ($user): ?>
-            <li><a href="admin.php">Admin Panel</a></li>
-            <li><a href="php/logout.php">Logout (<?= htmlspecialchars($user['full_name']) ?>)</a></li>
-        <?php else: ?>
-          <li><a href="index.php#register" class="btn btn-primary" style="color:#000; padding:5px 10px;">Join</a></li>
-        <?php endif; ?>
-      </ul>
-    </nav>
-  </header>
+<?php view("partials/header.php") ?>
 
   <main>
     <section class="hero">
@@ -52,78 +28,39 @@ $user = \Core\Session::get('user');
         </div>
         <div class="clubs-grid">
           
-          <!-- LINK TO ART CLUB -->
-          <article class="club-card">
-            <div class="club-card-image"><img src="images/art3.jpg"></div>
-            <div class="club-card-body">
-              <h3>Art & Culture Club</h3>
-              <p>Express creativity through painting and cultural showcases.</p>
-              <a href="club.php?slug=art" class="btn btn-primary">View Club</a>
+          <section class="section section-alt">
+            <div class="container">
+                <div class="clubs-grid">
+                    <?php foreach ($clubs as $club): ?>
+                        <article class="club-card">
+                            <div class="club-card-image">
+                                <img src="<?= $club['hero_image'] ?>" alt="<?= $club['name'] ?>">
+                            </div>
+                            <div class="club-card-body">
+                                <h3><?= htmlspecialchars($club['name']) ?></h3>
+                                <p><?= htmlspecialchars($club['description']) ?></p>
+                                <!-- THIS LINK TELLS club.php WHICH CLUB TO SHOW -->
+                                <a href="/club?slug=<?= $club['slug'] ?>" class="btn btn-primary">View Club</a>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
             </div>
-          </article>
-
-          <!-- LINK TO HACKATHON CLUB -->
-          <article class="club-card">
-            <div class="club-card-image"><img src="images/hack5.jpg"></div>
-            <div class="club-card-body">
-              <h3>Hackathon Club</h3>
-              <p>Build software, compete, and learn programming.</p>
-              <a href="club.php?slug=hackathon" class="btn btn-primary">View Club</a>
-            </div>
-          </article>
-
-          <!-- LINK TO SPORTS CLUB -->
-          <article class="club-card">
-            <div class="club-card-image"><img src="images/sport.jpg"></div>
-            <div class="club-card-body">
-              <h3>Sports Club</h3>
-              <p>Football, basketball, and athletics for all AAU students.</p>
-              <a href="club.php?slug=sports" class="btn btn-primary">View Club</a>
-            </div>
-          </article>
-
-          <!-- Add these to the clubs-grid in index.php -->
-          <article class="club-card">
-              <div class="club-card-image"><img src="images/red-cross.png"></div>
-              <div class="club-card-body">
-                  <h3>Red Cross Branch</h3>
-                  <p>Humanitarian service and first aid training.</p>
-                  <a href="club.php?slug=red-cross" class="btn btn-primary">View Club</a>
-              </div>
-          </article>
-
-          <article class="club-card">
-              <div class="club-card-image"><img src="images/literature.jpg"></div>
-              <div class="club-card-body">
-                  <h3>Literature Club</h3>
-                  <p>Poetry nights and creative writing workshops.</p>
-                  <a href="club.php?slug=literature" class="btn btn-primary">View Club</a>
-              </div>
-          </article>
-
-          <article class="club-card">
-              <div class="club-card-image"><img src="images/Debate.jpg"></div>
-              <div class="club-card-body">
-                  <h3>AAU Debate Club</h3>
-                  <p>Critical thinking and public speaking excellence.</p>
-                  <a href="club.php?slug=debate" class="btn btn-primary">View Club</a>
-              </div>
-          </article>
+          </section>
 
         </div>
       </div>
     </section>
 
-    <!-- Registration Form Section (Rame's Section) -->
     <section id="register" class="section">
         <div class="container">
             <div class="section-header"><h2>Join a Club</h2></div>
             <?php if (isset($_GET['error']) && $_GET['error'] === 'email_taken') : ?>
-    <p style="color: red; text-align: center; font-weight: bold;">
-        This email is already registered. Please login or use a different email.
-    </p>
-<?php endif; ?>
-            <form action="php/register.php" method="POST" class="form-card">
+              <p style="color: red; text-align: center; font-weight: bold;">
+                  This email is already registered. Please login or use a different email.
+              </p>
+            <?php endif; ?>
+            <form action="register" method="POST" class="form-card">
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" name="full_name" required>
@@ -134,7 +71,7 @@ $user = \Core\Session::get('user');
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" id="reg-password" required>
+                    <input type="password" name="password" id="password" required>
                 </div>
                 <div class="form-group">
                     <label>Select Club</label>

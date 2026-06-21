@@ -26,7 +26,7 @@ function urlIs($value){
 function abort($code = 404){
     http_response_code($code);
     
-    require basePath("views/{$code}.php");
+    require basePath("Views/{$code}.php");
 
     die();
 }
@@ -38,7 +38,7 @@ function authorize($condition, $status = 403){
 }
 
 function basePath($path){
-    return $path;
+    return BASE_PATH.$path;
 }
 
 function view($path, $attributes = []){

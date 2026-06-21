@@ -1,42 +1,7 @@
-<?php
-// 1. Include the necessary files for the session
-require 'Core/Session.php';
 
-session_start();
-
-// Get the user from the session (if logged in)
-$user = \Core\Session::get('user');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>AAU Clubs Platform | Home</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<?php require view("partials/head.php") ?>
 <body>
-  <header class="site-header">
-    <nav class="nav-container">
-      <a href="index.php" class="brand">
-        <img src="images/AAULogo.png" alt="AAU" class="brand-logo">
-        <span class="brand-title">AAU Clubs Platform</span>
-      </a>
-      <ul class="nav-menu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="clubs.php" class="active">Clubs</a></li>
-        <li><a href="key-dates.php">Key Dates</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        
-        
-        <?php if ($user): ?>
-            <li><a href="admin.php">Admin Panel</a></li>
-            <li><a href="php/logout.php">Logout (<?= htmlspecialchars($user['full_name']) ?>)</a></li>
-        <?php else: ?>
-          <li><a href="index.php#register" class="btn btn-primary" style="color:#000; padding:5px 10px;">Join</a></li>
-        <?php endif; ?>
-      </ul>
-    </nav>
-  </header>
+<?php require view("partials/header.php") ?>
 
   <main>
     <section class="hero">
@@ -55,9 +20,7 @@ $user = \Core\Session::get('user');
 
   </main>
 
-  <footer class="site-footer">
-      <p>&copy; 2024 Addis Ababa University Clubs Platform</p>
-  </footer>
+  <?php require view("partials/footer.php") ?>
 
   <script src="script.js"></script>
 </body>

@@ -1,34 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Upcoming club events at Addis Ababa University.">
-  <title>Events | AAU Clubs Platform</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<?php view("partials/head.php") ?>
 <body>
-  <header class="site-header">
-    <nav class="nav-container" aria-label="Main navigation">
-      <a href="index.html" class="brand">
-        <img src="images/AAULogo.png" alt="Addis Ababa University" class="brand-logo">
-        <span class="brand-title">AAU Clubs Platform</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="clubs.html">Clubs</a></li>
-      
-        <li><a href="events.html">Events</a></li>
-        <li><a href="key-dates.html">Key Dates</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <?php view("partials/header.php") ?>
 
   <main>
     <section class="page-hero">

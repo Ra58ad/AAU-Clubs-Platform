@@ -38,7 +38,7 @@ class Router{
     protected function abort($code = 404){
     http_response_code($code);
     
-    require basePath("views/{$code}.php");
+    require basePath("Views/{$code}.php");
 
     die();
 }
