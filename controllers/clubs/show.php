@@ -19,5 +19,6 @@ $media = $db->query($query, ['id' => $club['id']])->findAll();
 
 view('clubs/show.view.php', [
     'heading' => 'Notes',
-    'club' => $club
+    'club' => $club, 
+    'media' => $media
 ]);

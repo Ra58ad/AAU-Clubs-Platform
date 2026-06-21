@@ -41,11 +41,18 @@ if(!empty($errors)){
     ]);
 }
 
+$club = $db->query("SELECT id FROM clubs WHERE name = :name", [
+    'name' => $_POST['club']
+])->find();
 
-$db->query('INSERT into users(full_name, username, email, password) VALUES(?, ?, ?)', [
+$db->query('INSERT into users(club_id, full_name, username, email, password, club, role) VALUES(?, ?, ?, ?, ?, ?, ?)', [
+    $club['id'],
+    $_POST['full_name'],
     $_POST["username"], 
     $_POST['email'],
     password_hash($_POST["password"], PASSWORD_BCRYPT),
+    $_POST['club'],
+    'member'
 ]);
 
 $user = $db->query('select * from users where username = ?', [
@@ -59,4 +66,3 @@ $user = $db->query('select * from users where username = ?', [
 
 header('location: /');
 exit();
-

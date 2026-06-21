@@ -1,7 +1,7 @@
 <?php
 
 use Core\Authenticator;
-use Http\Forms\LoginForm;
+use Core\LoginForm;
 
 $form = LoginForm::validate($attributes = [
     'username' => $_POST['username'], 

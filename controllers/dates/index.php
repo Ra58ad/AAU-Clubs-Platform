@@ -4,11 +4,9 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-$query = "SELECT * FROM events WHERE is_highlight = 0 ORDER BY event_date ASC";
+$query = "SELECT * FROM events ORDER BY event_date ASC";
 
 $items = $db->query($query)->findAll();
-
-
 $upcomingEvents = filterByType($items, 'event');
 $deadlines = filterByType($items, 'deadline');
 $meetings = filterByType($items, 'meeting');

@@ -1,115 +1,117 @@
-<?php view("partials/head.php") ?>
+
+
+<?php  view("partials/head.php") ?>
 <body>
+
   <?php view("partials/header.php") ?>
 
   <main>
     <section class="page-hero">
-      <h1>Club Events</h1>
-      <p>Stay up to date with upcoming activities, exhibitions, and competitions across AAU clubs.</p>
+      <div class="container">
+        <h1>Key Dates & Deadlines</h1>
+        <p>Stay up to date with upcoming events, registration deadlines, and weekly meeting schedules for all AAU clubs.</p>
+      </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">What's Happening</span>
-          <h2>Upcoming Events</h2>
-          <p>Highlights from club activities happening soon on campus.</p>
+          <span class="section-label">Mark Your Calendar</span>
+          <h2>Major Events</h2>
         </div>
-        <div class="events-grid">
-          <article class="event-card">
-            <div class="event-card-image">
-              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop" alt="Hackathon event" loading="lazy">
-            </div>
-            <div class="event-card-body">
-              <span class="event-date">May 24, 2026</span>
-              <h3>Hackathons Showcase 2026</h3>
-              <p>Annual exhibition of student-built robots and live demonstrations in the Engineering Hall.</p>
-            </div>
-          </article>
-          <article class="event-card">
-            <div class="event-card-image">
-              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop" alt="Campus art exhibition" loading="lazy">
-            </div>
-            <div class="event-card-body">
-              <span class="event-date">June 2, 2026</span>
-              <h3>Campus Art Exhibition</h3>
-              <p>Open gallery featuring student artwork, live painting, and cultural performances.</p>
-            </div>
-          </article>
-          <article class="event-card">
-            <div class="event-card-image">
-              <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=400&fit=crop" alt="Inter-faculty football tournament" loading="lazy">
-            </div>
-            <div class="event-card-body">
-              <span class="event-date">June 15, 2026</span>
-              <h3>Inter-Faculty Football Cup</h3>
-              <p>Teams from across AAU compete in a week-long tournament at the main stadium.</p>
-            </div>
-          </article>
-          
+        
+        <div class="dates-list">
+          <?php if (empty($upcomingEvents)): ?>
+            <p style="text-align:center; color: var(--text-muted);">No major events currently scheduled.</p>
+          <?php else: ?>
+            <?php foreach ($upcomingEvents as $e): 
+                $date = new DateTime($e['event_date']); ?>
+                <article class="date-item">
+                  <div class="date-badge">
+                    <span class="day"><?= $date->format('d') ?></span>
+                    <span class="month"><?= $date->format('M') ?></span>
+                  </div>
+                  <div class="date-content">
+                    <span class="date-tag event">Event</span>
+                    <h3><?= htmlspecialchars($e['title']) ?></h3>
+                    <p><?= htmlspecialchars($e['description']) ?></p>
+                  </div>
+                </article>
+            <?php endforeach; ?>
+          <?php endif; ?>
         </div>
+      </div>
+    </section>
 
-        <div class="video-showcase">
-          <h3>Event Highlights on Video</h3>
-          <div class="video-grid">
-            <div class="video-wrapper">
-              <iframe
-                src="https://youtube.com/embed/2PCFQDYiH5I?si=Q0Whm7WKu6H-CejY"
-                title="Hackathon club highlight video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy">
-              </iframe>
-            </div>
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/B-9vdUYjPzk"
-                title="Campus clubs overview video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy">
-              </iframe>
-            </div>
-          </div>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Don't Miss Out</span>
+          <h2>Important Deadlines</h2>
         </div>
+        
+        <div class="dates-list">
+          <?php if (empty($deadlines)): ?>
+            <p style="text-align:center; color: var(--text-muted);">No active deadlines at the moment.</p>
+          <?php else: ?>
+            <?php foreach ($deadlines as $e): 
+                $date = new DateTime($e['event_date']); ?>
+                <article class="date-item">
+                  <div class="date-badge">
+                    <span class="day"><?= $date->format('d') ?></span>
+                    <span class="month"><?= $date->format('M') ?></span>
+                  </div>
+                  <div class="date-content">
+                    <span class="date-tag deadline">Deadline</span>
+                    <h3><?= htmlspecialchars($e['title']) ?></h3>
+                    <p><?= htmlspecialchars($e['description']) ?></p>
+                  </div>
+                </article>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Weekly Schedule</span>
+          <h2>Club Meetings</h2>
+        </div>
+        
+        <div class="dates-list">
+          <?php if (empty($meetings)): ?>
+            <p style="text-align:center; color: var(--text-muted);">Check back later for updated meeting schedules.</p>
+          <?php else: ?>
+            <?php foreach ($meetings as $e): 
+                $date = new DateTime($e['event_date']); ?>
+                <article class="date-item">
+                  <div class="date-badge" style="background: var(--gold); color: var(--navy-dark);">
+                    <span class="day"><?= $date->format('D') ?></span>
+                    <span class="month">Weekly</span>
+                  </div>
+                  <div class="date-content">
+                    <span class="date-tag meeting">Meeting</span>
+                    <h3><?= htmlspecialchars($e['title']) ?></h3>
+                    <p><?= htmlspecialchars($e['description']) ?></p>
+                  </div>
+                </article>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
+        
+        <p style="text-align: center; margin-top: 3rem;">
+          <a href="/register" class="btn btn-primary">Register for Reminders</a>
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="brand brand--footer">
-          <img src="images/AAULogo.png" alt="Addis Ababa University" class="brand-logo brand-logo--footer">
-          <span class="brand-title">AAU Clubs Platform</span>
-        </a>
-        <p>A student-led platform connecting AAU communities through clubs, events, and shared experiences.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="clubs.html">Clubs</a></li>
-         
-          <li><a href="events.html">Events</a></li>
-          <li><a href="key-dates.html">Key Dates</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-contributors">
-        <h4>Contributors</h4>
-        <ul>
-          <li>Nahim Teklu</li>
-          <li>Rame Mahamat</li>
-          <li>Sead Bushra</li>
-          <li>Sinen Dirirsa</li>
-          <li>Tsegaye Shewamare Ebdo</li>
-        </ul>
-      </div>
-    </div>
-    <p class="footer-bottom">&copy; 2026 AAU Clubs Platform. Addis Ababa University.</p>
-  </footer>
+  <?php view("partials/footer.php") ?>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+

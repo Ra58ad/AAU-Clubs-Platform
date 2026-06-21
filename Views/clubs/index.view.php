@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Clubs | AAU Clubs Platform</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<?php  view("partials/head.php") ?>
 <body>
-    <!-- Navbar -->
-    <header class="site-header">
-        <nav class="nav-container">
-            <a href="index.php" class="brand">
-                <img src="images/AAULogo.png" alt="AAU Logo" class="brand-logo">
-                <span class="brand-title">AAU Clubs Platform</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="clubs.php" class="active">Clubs</a></li>
-                <li><a href="key-dates.php">Key Dates</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="index.php#register" class="btn btn-primary" style="color:#000; padding:5px 10px;">Join</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php  view("partials/header.php") ?>
 
     <main>
         <section class="page-hero">

@@ -1,11 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>AAU Clubs Platform | Home</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<?php  view("partials/head.php") ?>
 <body>
 <?php view("partials/header.php") ?>
 
@@ -26,7 +20,6 @@
         <div class="section-header">
           <h2>Student Clubs</h2>
         </div>
-        <div class="clubs-grid">
           
           <section class="section section-alt">
             <div class="container">
@@ -48,46 +41,10 @@
             </div>
           </section>
 
-        </div>
       </div>
     </section>
 
-    <section id="register" class="section">
-        <div class="container">
-            <div class="section-header"><h2>Join a Club</h2></div>
-            <?php if (isset($_GET['error']) && $_GET['error'] === 'email_taken') : ?>
-              <p style="color: red; text-align: center; font-weight: bold;">
-                  This email is already registered. Please login or use a different email.
-              </p>
-            <?php endif; ?>
-            <form action="register" method="POST" class="form-card">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="full_name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" id="password" required>
-                </div>
-                <div class="form-group">
-                    <label>Select Club</label>
-                    <select name="club" required>
-                        <option value="art">Art & Culture Club</option>
-                        <option value="hackathon">Hackathon Club</option>
-                        <option value="sports">Sports Club</option>
-                        <option value="red-cross">Red Cross AAU Branch</option>
-                        <option value="literature">AAU Literature Club</option>
-                        <option value="debate">AAU Debate Club</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Registration</button>
-            </form>
-        </div>
-    </section>
+    
   </main>
 
   <?php  require basePath("Views/partials/footer.php") ?>

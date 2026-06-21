@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="page-hero"><h1><?= $club['name'] ?></h1><p><?= $club['description'] ?></p></header>
+    <?php view("partials/header.php") ?>
+    <section class="page-hero"><h1><?= $club['name'] ?></h1><p><?= $club['description'] ?></p></section>
     <main class="container">
         <section class="club-detail-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; padding:2rem 0;">
             <img src="<?= $club['hero_image'] ?>" style="width:100%; border-radius:12px;">

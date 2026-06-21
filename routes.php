@@ -5,6 +5,8 @@ use \Core\Router;
 
 $router->get("/", "index.php");
 
+$router->get("/admin", "admin.php");
+
 $router->get("/clubs", "clubs/index.php");
 
 $router->get("/club", "clubs/show.php");
