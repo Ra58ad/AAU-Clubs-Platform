@@ -3,7 +3,7 @@
 use Core\Router;
 
 $heading = 'AAU Clubs';
-const BASE_PATH = __DIR__.'\..\\';
+const BASE_PATH = __DIR__ . "/";
 
 
 require "Core\\functions.php";
@@ -14,7 +14,19 @@ spl_autoload_register(function ($class){
 
 session_start();
 
-// require basePath("bootstrap.php");
+use Core\Container;
+use Core\Database;
+use Core\App;
+
+$container = new Container();
+
+$container->bind("Core\Database", function(){
+    $config = require basePath('config.php');
+    return new Database($config['database']);
+});
+
+App::setContainer($container);
+
 
 $router = new Router();
 

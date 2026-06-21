@@ -1,32 +1,4 @@
-<?php
-// 1. Core Integration & Session
 
-require 'Core/Session.php';
-
-
-session_start();
-
-// 2. Database connection
-$config = require 'config.php';
-$db = new \Core\Database($config['database'], $config['username'], $config['password']);
-
-// 3. Fetch all schedule items (is_highlight = 0 means schedule, not gallery)
-$items = $db->query("SELECT * FROM events WHERE is_highlight = 0 ORDER BY event_date ASC")->findAll();
-
-// Helper to filter items by type
-function filterByType($items, $type) {
-    return array_filter($items, function($item) use ($type) {
-        return $item['type'] === $type;
-    });
-}
-
-$upcomingEvents = filterByType($items, 'event');
-$deadlines = filterByType($items, 'deadline');
-$meetings = filterByType($items, 'meeting');
-
-// Check user session for Nav logic
-$user = \Core\Session::get('user');
-?>
 
 <!DOCTYPE html>
 <html lang="en">

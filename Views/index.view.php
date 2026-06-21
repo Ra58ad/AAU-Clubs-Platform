@@ -40,7 +40,7 @@ $user = \Core\Session::get('user');
         <p>Connect with student clubs, attend events, and find your community.</p>
         <div class="hero-actions">
           <a href="/clubs" class="btn btn-primary">Explore Clubs</a>
-          <a href="key-dates.php" class="btn btn-outline">View Key Dates</a>
+          <a href="/key-dates" class="btn btn-outline">View Key Dates</a>
         </div>
       </div>
     </section>
@@ -153,10 +153,7 @@ $user = \Core\Session::get('user');
     </section>
   </main>
 
-  <footer class="site-footer">
-      <p>&copy; 2024 Addis Ababa University Clubs Platform</p>
-  </footer>
-
+  <?php  require basePath("Views/partials/footer.php") ?>
   <script src="script.js"></script>
 </body>
 </html>

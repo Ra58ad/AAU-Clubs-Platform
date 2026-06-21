@@ -5,35 +5,35 @@ namespace Core;
 class Router{
     protected $routes = [];
 
-    public function add($uri, $view, $method){
+    public function add($uri, $controller, $method){
         $this->routes[] = [
             "uri" => $uri, 
-            "view" => $view,
+            "controller" => $controller,
             "method" => $method,
             ];
 
         return $this;
     }
 
-    public function get($uri, $view){
-        return $this->add($uri, $view, "GET");
+    public function get($uri, $cont){
+        return $this->add($uri, $cont, "GET");
     }
 
-    public function post($uri, $view){
-        return $this->add($uri, $view, "POST");
+    public function post($uri, $cont){
+        return $this->add($uri, $cont, "POST");
 
     }
 
-    public function delete($uri, $view){
-        return $this->add($uri, $view, "DELETE");
+    public function delete($uri, $cont){
+        return $this->add($uri, $cont, "DELETE");
     }
     
-    public function patch($uri, $view){
-        return $this->add($uri, $view, "PATCH");
+    public function patch($uri, $cont){
+        return $this->add($uri, $cont, "PATCH");
     }
 
-    public function put($uri, $view){
-        return $this->add($uri, $view, "PUT");
+    public function put($uri, $cont){
+        return $this->add($uri, $cont, "PUT");
     }
     protected function abort($code = 404){
     http_response_code($code);
@@ -55,7 +55,7 @@ class Router{
     public function route($uri, $method){
         foreach($this->routes as $route){
             if($route['uri']==$uri && $route['method']==strtoupper($method)){
-                return require basePath("Views\\".$route['view'].".view.php");
+                return require basePath("controllers/".$route['controller']);
             }
         }
         $this->abort();

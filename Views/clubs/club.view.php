@@ -1,15 +1,4 @@
-<?php
 
-
-$config = require 'config.php';
-$db = new \Core\Database($config['database'], $config['username'], $config['password']);
-
-$slug = $_GET['slug'] ?? 'art';
-$club = $db->query("SELECT * FROM clubs WHERE slug = :slug", ['slug' => $slug])->find();
-if (!$club) { abort(); }
-
-$media = $db->query("SELECT * FROM events WHERE club_id = :id AND is_highlight = 1", ['id' => $club['id']])->findAll();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

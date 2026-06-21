@@ -13,6 +13,12 @@ function dd($value){
     die();
 }
 
+function filterByType($items, $type) {
+    return array_filter($items, function($item) use ($type) {
+        return $item['type'] === $type;
+    });
+}
+
 function urlIs($value){
     return $_SERVER['REQUEST_URI'] === $value;
 }
@@ -38,7 +44,7 @@ function basePath($path){
 function view($path, $attributes = []){
     extract($attributes);
 
-    require BASE_PATH . "views/" . $path;
+    require BASE_PATH . "Views\\" . $path;
 }
 
 function redirect($path){

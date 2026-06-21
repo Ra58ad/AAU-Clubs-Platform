@@ -4,11 +4,10 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-$query = "select * from notes where userID = ?";
+$query = "select * from clubs";
 
-$notes = $db->query($query, [$_SESSION['user']['id']])->findAll();
+$clubs = $db->query($query)->findAll();
 
-view('notes/index.view.php', [
-    'heading' => 'My Notes',
-    'notes' => $notes
+view('clubs/index.view.php', [
+    'clubs' => $clubs
 ]);
