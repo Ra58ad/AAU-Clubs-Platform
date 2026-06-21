@@ -19,6 +19,9 @@ Contributors names and contact info
 
 ## Version History
 
+* 0.5
+    * Partway through adding controllers and partial views
+
 * 0.4
     * Router and error pages added, session re-format
 
