@@ -26,6 +26,7 @@ Run this query to get your database up and running.
         id INT AUTO_INCREMENT PRIMARY KEY,
         club_id INT,
         full_name VARCHAR(100) NOT NULL,
+        username VARCHAR(100) UNIQUE NOT NULL,
         student_id VARCHAR(50),
         email VARCHAR(100) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL, 
@@ -58,4 +59,26 @@ Run this query to get your database up and running.
     (2, 'Summer Bootcamp Registration', '2024-06-10', NULL, NULL, 0, 'deadline'),
     (1, 'Gallery Opening', '2024-06-20', 'images/art1.jpg', 'image', 1, 'event');
 
+    -- Single platform admin (not created via registration)
+    -- Default password: admin123 (change after first login)
+    INSERT INTO users (full_name, username, email, password, role) VALUES
+    ('Platform Admin', 'admin', 'admin@aau.edu', '$2y$12$DQX4vrRmXj1CNE/qfRsDZOxD.tK4IEHv9g9v41BUm.MfNs477da96', 'admin');
+
 ```
+
+## Migrations
+
+If your database was created from an older schema, run these updates:
+
+```sql
+USE aau_clubs_db;
+
+ALTER TABLE clubs
+    ADD COLUMN IF NOT EXISTS contact_email VARCHAR(100) AFTER about_us,
+    ADD COLUMN IF NOT EXISTS phone VARCHAR(20) AFTER contact_email;
+
+ALTER TABLE users
+    ADD COLUMN IF NOT EXISTS username VARCHAR(100) UNIQUE NOT NULL AFTER full_name;
+```
+
+Note: MariaDB before 10.4 may not support `IF NOT EXISTS` on `ADD COLUMN`. If you get an error, run only the statements for columns you are missing.

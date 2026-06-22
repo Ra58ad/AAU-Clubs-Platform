@@ -62,6 +62,7 @@ $user = $db->query('select * from users where username = ?', [
 (new Authenticator())->login([
     'username' => $_POST['username'],
     'id' => $user['id'],
+    'role' => 'member',
 ]);
 
 header('location: /');

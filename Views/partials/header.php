@@ -11,7 +11,9 @@
         <li><a href="/contact">Contact</a></li>
         
         <?php if($_SESSION['user'] ?? false): ?>
-            <li><a href="/admin">Admin Panel</a></li>
+            <?php if(isAdmin()): ?>
+                <li><a href="/admin">Admin Panel</a></li>
+            <?php endif; ?>
             <li><form method="POST" action="/logout" class="">
                 <input type="hidden" name="_method" value="DELETE">
                 
