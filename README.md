@@ -23,6 +23,9 @@ Contributors names and contact info
 
 ## Version History
 
+* 0.6
+    * Controllers, partial views, auth done.
+
 * 0.5
     * Partway through adding controllers and partial Views
 
