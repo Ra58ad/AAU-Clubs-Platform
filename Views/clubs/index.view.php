@@ -30,7 +30,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2024 Addis Ababa University Clubs Platform</p>
+        <p>&copy; <?= date("Y") ?> Addis Ababa University Clubs Platform</p>
     </footer>
 
     <script src="script.js"></script>
