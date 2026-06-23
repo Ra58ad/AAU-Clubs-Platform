@@ -22,6 +22,7 @@
         <?php if($_SESSION['user'] ?? false): ?>
             <?php if(isAdmin()): ?>
                 <li><a href="/admin">Admin Panel</a></li>
+                <li><a href="/members">Members</a></li>
             <?php endif; ?>
             <li><form method="POST" action="/logout" class="">
                 <input type="hidden" name="_method" value="DELETE">

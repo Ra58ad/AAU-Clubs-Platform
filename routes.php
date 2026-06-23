@@ -38,3 +38,5 @@ $router->get('/login', 'sessions/create.php');
 $router->post('/sessions', 'sessions/store.php');
 
 $router->delete('/logout','sessions/destroy.php');
+
+$router->get('/members', 'member.php');
