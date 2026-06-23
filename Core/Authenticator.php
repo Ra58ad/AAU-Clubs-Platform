@@ -29,6 +29,10 @@ class Authenticator{
         session_regenerate_id(true);
     }
 
+    public function check(){
+        return isset($_SESSION['user']);
+    }
+
     public function logout(){
         Session::destroy();
     }
