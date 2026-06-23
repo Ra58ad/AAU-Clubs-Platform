@@ -1,8 +1,8 @@
-<?php require basePath("Views/partials/head.php"); ?>
+<?php basePath("Views/partials/head.php"); ?>
 
 <body>
 
-  <?php require basePath("Views/partials/header.php"); ?>
+  <?php basePath("Views/partials/header.php"); ?>
 
   <main>
     <section class="hero">
@@ -19,7 +19,7 @@
 
   </main>
 
-  <?php  require basePath("Views/partials/footer.php") ?>
+  <?php  basePath("Views/partials/footer.php") ?>
 
   <script src="script.js"></script>
 </body>

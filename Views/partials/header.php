@@ -1,5 +1,14 @@
+  <script> function icon() {
+    var x = document.getElementById("nav");
+    if (x.className === "nav-container") {
+      x.className += " responsive";
+    } else {
+      x.className = "nav-container";
+    }
+  }  
+  </script>
   <header class="site-header">
-    <nav class="nav-container">
+    <nav class="nav-container" id="nav">
       <a href="/" class="brand">
         <img src="images/AAULogo.png" alt="AAU" class="brand-logo">
         <span class="brand-title">AAU Clubs Platform</span>
@@ -24,6 +33,9 @@
             <li><a href="/register" class="<?=urlIs('/register') ? 'bg-red-300 text-white' : 'text-white-400' ?> hover:text-gray-200 hover:underline hover:bg-blue-700 px-4 py-3 rounded-md">Register</a></li>
             <li><a href="/login" class="<?=urlIs('/login') ? 'bg-red-300 text-white' : 'text-white-400' ?> hover:text-gray-200 hover:underline hover:bg-blue-700 px-4 py-3 rounded-md">Login</a></li>
         <?php endif; ?>
+        <li href="javascript:void(0);" class="icon" onclick="icon()">
+          <i class="fa fa-bars"></i>
+        </li>
       </ul>
     </nav>
   </header>
