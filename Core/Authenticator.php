@@ -9,8 +9,9 @@ class Authenticator{
         if($user){
             if (password_verify($password, $user['password'])){
                 $this->login([
-                    'username' => $_POST['username'],
+                    'username' => $user['username'],
                     'id' => $user['id'],
+                    'role' => $user['role'],
                 ]);
                 return true;
             }
@@ -22,6 +23,7 @@ class Authenticator{
         $_SESSION['user'] = [
             'username' => $user['username'],
             'id' => $user['id'],
+            'role' => $user['role'] ?? 'member',
         ];
 
         session_regenerate_id(true);

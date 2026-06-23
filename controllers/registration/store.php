@@ -52,7 +52,7 @@ $db->query('INSERT into users(club_id, full_name, username, email, password, clu
     $_POST['email'],
     password_hash($_POST["password"], PASSWORD_BCRYPT),
     $_POST['club'],
-    'member'
+    'admin'
 ]);
 
 $user = $db->query('select * from users where username = ?', [
@@ -62,6 +62,7 @@ $user = $db->query('select * from users where username = ?', [
 (new Authenticator())->login([
     'username' => $_POST['username'],
     'id' => $user['id'],
+    'role' => 'admin',
 ]);
 
 header('location: /');

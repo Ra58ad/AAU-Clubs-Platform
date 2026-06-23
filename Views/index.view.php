@@ -20,27 +20,21 @@
         <div class="section-header">
           <h2>Student Clubs</h2>
         </div>
-          
-          <section class="section section-alt">
-            <div class="container">
-                <div class="clubs-grid">
-                    <?php foreach ($clubs as $club): ?>
-                        <article class="club-card">
-                            <div class="club-card-image">
-                                <img src="<?= $club['hero_image'] ?>" alt="<?= $club['name'] ?>">
-                            </div>
-                            <div class="club-card-body">
-                                <h3><?= htmlspecialchars($club['name']) ?></h3>
-                                <p><?= htmlspecialchars($club['description']) ?></p>
-                                <!-- THIS LINK TELLS club.php WHICH CLUB TO SHOW -->
-                                <a href="/club?slug=<?= $club['slug'] ?>" class="btn btn-primary">View Club</a>
-                            </div>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-          </section>
 
+        <div class="clubs-grid">
+          <?php foreach ($clubs as $club): ?>
+            <article class="club-card">
+              <div class="club-card-image">
+                <img src="<?= imageSrc($club['hero_image']) ?>" alt="<?= htmlspecialchars($club['name']) ?>">
+              </div>
+              <div class="club-card-body">
+                <h3><?= htmlspecialchars($club['name']) ?></h3>
+                <p><?= htmlspecialchars($club['description']) ?></p>
+                <a href="/club?slug=<?= $club['slug'] ?>" class="btn btn-primary">View Club</a>
+              </div>
+            </article>
+          <?php endforeach; ?>
+        </div>
       </div>
     </section>
 

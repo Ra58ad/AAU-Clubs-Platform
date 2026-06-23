@@ -2,6 +2,8 @@
 use Core\App;
 use Core\Database;
 
+requireAdmin();
+
 $db = App::resolve(Database::class);
 
 $query = "SELECT * FROM users ORDER BY id DESC";

@@ -14,7 +14,7 @@
                     <?php foreach ($clubs as $club): ?>
                         <article class="club-card">
                             <div class="club-card-image">
-                                <img src="<?= $club['hero_image'] ?>" alt="<?= $club['name'] ?>">
+                                <img src="<?= imageSrc($club['hero_image']) ?>" alt="<?= htmlspecialchars($club['name']) ?>">
                             </div>
                             <div class="club-card-body">
                                 <h3><?= htmlspecialchars($club['name']) ?></h3>

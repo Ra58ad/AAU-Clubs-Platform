@@ -1,6 +1,6 @@
 <?php
-require '../Core/Database.php';
-$config = require '../config.php';
+require __DIR__ . '/../Core/Database.php';
+$config = require __DIR__ . '/../config.php';
 $db = new \Core\Database($config['database'], $config['username'], $config['password']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -1,7 +1,7 @@
 
-<?php require view("partials/head.php") ?>
+<?php view("partials/head.php") ?>
 <body>
-<?php require view("partials/header.php") ?>
+<?php view("partials/header.php") ?>
 
   <main>
     <section class="hero">
@@ -20,7 +20,7 @@
 
   </main>
 
-  <?php require view("partials/footer.php") ?>
+  <?php view("partials/footer.php") ?>
 
   <script src="script.js"></script>
 </body>
