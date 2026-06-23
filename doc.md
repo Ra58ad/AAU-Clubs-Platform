@@ -26,6 +26,7 @@ Run this query to get your database up and running.
         id INT AUTO_INCREMENT PRIMARY KEY,
         club_id INT,
         full_name VARCHAR(100) NOT NULL,
+        username VARCHAR(255) NOT NULL,
         student_id VARCHAR(50),
         email VARCHAR(100) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL, 
